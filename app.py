@@ -47,8 +47,8 @@ api_calls_per_day = st.sidebar.number_input("Average number of API calls per day
 avg_input_length = st.sidebar.number_input("Average input sequence length per API call in characters", min_value=0, value=2000)
 avg_output_length = st.sidebar.number_input("Average output sequence length per API call in characters", min_value=0, value=750)
 image_count_per_day = st.sidebar.number_input("Total number of images processed per day", min_value=0, value=1000)
-video_seconds_per_day = st.sidebar.number_input("Total duration of videos processed per day (in seconds)", min_value=0, value=0)
-audio_seconds_per_day = st.sidebar.number_input("Total duration of audio processed per day (in seconds)", min_value=0, value=0)
+video_seconds_per_day = st.sidebar.number_input("Total duration of videos processed per day (in seconds) (not for 1.0 Pro)", min_value=0, value=0)
+audio_seconds_per_day = st.sidebar.number_input("Total duration of audio processed per day (in seconds) (not for 1.0 Pro)", min_value=0, value=0)
 # context_window = st.sidebar.selectbox("Context Window in tokens (128K token ≈ 512000 characters)", ["<= 128K", "> 128K"], index=0)
 if avg_input_length <= 512000:
     context_window = '<= 128K'
