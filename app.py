@@ -40,14 +40,20 @@ def calculate_cost(model, api_calls_per_day, avg_input_length, avg_output_length
 
 st.title("Gemini API Cost Comparison")
 
+st.caption('Please remember that the Input and Output here is taken in Characters and not tokens. In English, a token typically represents about 4 characters or roughly three-quarters of a word. Keep in mind that tokens aren’t uniformly sized')
+
 st.sidebar.header("Daily Usage Inputs")
-api_calls_per_day = st.sidebar.number_input("Average number of API calls per day", min_value=0, value=100)
-avg_input_length = st.sidebar.number_input("Average input sequence length per API call in characters", min_value=0, value=100)
-avg_output_length = st.sidebar.number_input("Average output sequence length per API call in characters", min_value=0, value=100)
-image_count_per_day = st.sidebar.number_input("Total number of images processed per day", min_value=0, value=100)
-video_seconds_per_day = st.sidebar.number_input("Total duration of videos processed per day (in seconds)", min_value=0, value=100)
-audio_seconds_per_day = st.sidebar.number_input("Total duration of audio processed per day (in seconds)", min_value=0, value=100)
-context_window = st.sidebar.selectbox("Context Window", ["<= 128K", "> 128K"], index=0)
+api_calls_per_day = st.sidebar.number_input("Average number of API calls per day", min_value=0, value=20000)
+avg_input_length = st.sidebar.number_input("Average input sequence length per API call in characters", min_value=0, value=2000)
+avg_output_length = st.sidebar.number_input("Average output sequence length per API call in characters", min_value=0, value=750)
+image_count_per_day = st.sidebar.number_input("Total number of images processed per day", min_value=0, value=1000)
+video_seconds_per_day = st.sidebar.number_input("Total duration of videos processed per day (in seconds)", min_value=0, value=0)
+audio_seconds_per_day = st.sidebar.number_input("Total duration of audio processed per day (in seconds)", min_value=0, value=0)
+# context_window = st.sidebar.selectbox("Context Window in tokens (128K token ≈ 512000 characters)", ["<= 128K", "> 128K"], index=0)
+if avg_input_length <= 512000:
+    context_window = '<= 128K'
+else:
+    context_window = '> 128K'
 
 st.sidebar.header("Model Selection")
 model = st.sidebar.selectbox("Select the Model", ["Gemini 1.5 Flash", "Gemini 1.5 Pro", "Gemini 1.0 Pro"])
