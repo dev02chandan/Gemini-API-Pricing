@@ -38,7 +38,7 @@ def calculate_cost(model, api_calls_per_day, avg_input_length, avg_output_length
     monthly_total_cost = daily_total_cost * 30
     return daily_total_cost, monthly_total_cost, image_cost, video_cost, text_input_cost, audio_cost, text_output_cost
 
-st.title("Gemini API Cost Comparison")
+st.title("Gemini API Cost Approximator")
 
 st.caption('Please remember that the Input and Output here is taken in Characters and not tokens. In English, a token typically represents about 4 characters or roughly three-quarters of a word. Keep in mind that tokens aren’t uniformly sized')
 
