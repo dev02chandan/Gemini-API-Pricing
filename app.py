@@ -3,17 +3,17 @@ import streamlit as st
 def calculate_cost(model, api_calls_per_day, avg_input_length, avg_output_length, image_count_per_day, video_seconds_per_day, audio_seconds_per_day, context_window):
     if model == 'Gemini 1.5 Flash':
         if context_window == '<= 128K':
-            image_cost = 0.0001315 * image_count_per_day
-            video_cost = 0.0001315 * video_seconds_per_day
-            text_input_cost = 0.000125 * (api_calls_per_day * avg_input_length / 1000)
-            audio_cost = 0.000125 * audio_seconds_per_day
-            text_output_cost = 0.000375 * (api_calls_per_day * avg_output_length / 1000)
+            image_cost = 0.00002 * image_count_per_day
+            video_cost = 0.00002 * video_seconds_per_day
+            text_input_cost = 0.00001875 * (api_calls_per_day * avg_input_length / 1000)
+            audio_cost = 0.000002 * audio_seconds_per_day
+            text_output_cost = 0.000075 * (api_calls_per_day * avg_output_length / 1000)
         else:
-            image_cost = 0.000263 * image_count_per_day
-            video_cost = 0.000263 * video_seconds_per_day
-            text_input_cost = 0.00025 * (api_calls_per_day * avg_input_length / 1000)
-            audio_cost = 0.00025 * audio_seconds_per_day
-            text_output_cost = 0.00075 * (api_calls_per_day * avg_output_length / 1000)
+            image_cost = 0.00004 * image_count_per_day
+            video_cost = 0.00004  * video_seconds_per_day
+            text_input_cost = 0.0000375 * (api_calls_per_day * avg_input_length / 1000)
+            audio_cost = 0.000004 * audio_seconds_per_day
+            text_output_cost = 0.00015 * (api_calls_per_day * avg_output_length / 1000)
     elif model == 'Gemini 1.5 Pro':
         if context_window == '<= 128K':
             image_cost = 0.001315 * image_count_per_day
