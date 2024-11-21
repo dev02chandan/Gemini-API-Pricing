@@ -119,8 +119,8 @@ if st.sidebar.button("Calculate Cost"):
         context_window,
     )
 
-    st.write(f"## Total Daily Cost for {model}: ${daily_total_cost:.2f}")
-    st.write(f"## Total Monthly Cost for {model}: ${monthly_total_cost:.2f}")
+    st.write(f"## Total Daily Cost for {model}: ${daily_total_cost:.8f}")
+    st.write(f"## Total Monthly Cost for {model}: ${monthly_total_cost:.8f}")
 
     st.write("### Detailed Costs Breakdown")
 
@@ -132,8 +132,8 @@ if st.sidebar.button("Calculate Cost"):
     st.write(
         f"- Cost per image: ${image_cost / image_count_per_day if image_count_per_day else 0:.6f}"
     )
-    st.write(f"- Daily image input cost: ${image_cost:.2f}")
-    st.write(f"- Monthly image input cost: ${image_cost * 30:.2f}")
+    st.write(f"- Daily image input cost: ${image_cost:.8f}")
+    st.write(f"- Monthly image input cost: ${image_cost * 30:.8f}")
 
     st.write(f"**2. Video Input Cost**")
     st.write(
@@ -145,8 +145,8 @@ if st.sidebar.button("Calculate Cost"):
     st.write(
         f"- Cost per second of video: ${video_cost / video_seconds_per_day if video_seconds_per_day else 0:.6f}"
     )
-    st.write(f"- Daily video input cost: ${video_cost:.2f}")
-    st.write(f"- Monthly video input cost: ${video_cost * 30:.2f}")
+    st.write(f"- Daily video input cost: ${video_cost:.8f}")
+    st.write(f"- Monthly video input cost: ${video_cost * 30:.8f}")
 
     st.write(f"**3. Text Input Cost**")
     st.write(
@@ -158,8 +158,8 @@ if st.sidebar.button("Calculate Cost"):
     st.write(
         f"- Cost per 1k characters: ${text_input_cost / (api_calls_per_day * avg_input_length / 1000) if (api_calls_per_day * avg_input_length / 1000) else 0:.6f}"
     )
-    st.write(f"- Daily text input cost: ${text_input_cost:.2f}")
-    st.write(f"- Monthly text input cost: ${text_input_cost * 30:.2f}")
+    st.write(f"- Daily text input cost: ${text_input_cost:.8f}")
+    st.write(f"- Monthly text input cost: ${text_input_cost * 30:.8f}")
 
     st.write(f"**4. Audio Input Cost**")
     st.write(
@@ -171,8 +171,8 @@ if st.sidebar.button("Calculate Cost"):
     st.write(
         f"- Cost per second of audio: ${audio_cost / audio_seconds_per_day if audio_seconds_per_day else 0:.6f}"
     )
-    st.write(f"- Daily audio input cost: ${audio_cost:.2f}")
-    st.write(f"- Monthly audio input cost: ${audio_cost * 30:.2f}")
+    st.write(f"- Daily audio input cost: ${audio_cost:.8f}")
+    st.write(f"- Monthly audio input cost: ${audio_cost * 30:.8f}")
 
     st.write(f"**5. Text Output Cost**")
     st.write(
@@ -184,17 +184,17 @@ if st.sidebar.button("Calculate Cost"):
     st.write(
         f"- Cost per 1k characters: ${text_output_cost / (api_calls_per_day * avg_output_length / 1000) if (api_calls_per_day * avg_output_length / 1000) else 0:.6f}"
     )
-    st.write(f"- Daily text output cost: ${text_output_cost:.2f}")
-    st.write(f"- Monthly text output cost: ${text_output_cost * 30:.2f}")
+    st.write(f"- Daily text output cost: ${text_output_cost:.8f}")
+    st.write(f"- Monthly text output cost: ${text_output_cost * 30:.8f}")
 
     # Summary
     st.write("### Summary")
-    st.write(f"- **Monthly image input cost**: ${image_cost * 30:.2f}")
-    st.write(f"- **Monthly video input cost**: ${video_cost * 30:.2f}")
-    st.write(f"- **Monthly text input cost**: ${text_input_cost * 30:.2f}")
-    st.write(f"- **Monthly audio input cost**: ${audio_cost * 30:.2f}")
-    st.write(f"- **Monthly text output cost**: ${text_output_cost * 30:.2f}")
-    st.write(f"- **Total monthly cost**: ${monthly_total_cost:.2f}")
+    st.write(f"- **Monthly image input cost**: ${image_cost * 30:.8f}")
+    st.write(f"- **Monthly video input cost**: ${video_cost * 30:.8f}")
+    st.write(f"- **Monthly text input cost**: ${text_input_cost * 30:.8f}")
+    st.write(f"- **Monthly audio input cost**: ${audio_cost * 30:.8f}")
+    st.write(f"- **Monthly text output cost**: ${text_output_cost * 30:.8f}")
+    st.write(f"- **Total monthly cost**: ${monthly_total_cost:.8f}")
 
     st.write(
         """
